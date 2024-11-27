@@ -1065,3 +1065,9 @@ textarea#comment.massage-bt::placeholder {
 .margin_90{
     margin: 90px 0px;
 }
+
+/* new style */
+
+.box_main .bi{
+    font-size: 35px;
+}

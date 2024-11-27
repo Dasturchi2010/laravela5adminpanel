@@ -34,7 +34,7 @@
                 <!-- Email -->
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="icon_name">Icon nomi</label>
+                        <label for="icon_name">Icon nomi <a target="__blank" href="https://icons.getbootstrap.com/">Tanlash</a></label>
                         <input type="text" name="icon_name" id="icon_name" value="{{ old('icon_name') }}" class="form-control @error('icon_name') is-invalid @enderror" placeholder="Icon nomini kiriting">
                         @error('icon_name')
                             <small class="text-danger">{{ $message }}</small>

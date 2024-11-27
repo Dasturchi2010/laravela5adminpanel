@@ -24,11 +24,11 @@
                         <td>{{ $service->id }}</td>
                     </tr>
                     <tr>
-                        <th>Ismi:</th>
+                        <th>Title:</th>
                         <td>{{ $service->title }}</td>
                     </tr>
                     <tr>
-                        <th>Email:</th>
+                        <th>Icon nomi:</th>
                         <td>{{ $service->icon_name }}</td>
                     </tr>
                     <tr>

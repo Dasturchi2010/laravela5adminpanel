@@ -7,26 +7,28 @@
     @include('backend.layouts.message')
 
     <div class="col-12 text-center">
-        <h1 class="text-primary">Service hizmatlar</h1>
+        <h1 class="text-primary">Portifolio</h1>
     </div>
 
     <div class="col-12 text-right">
-        <a href="{{ route('services.create') }}" class="btn btn-success btn-sm mb-1">Qo'shish</a>
+        <a href="{{ route('portifolios.create') }}" class="btn btn-success btn-sm mb-1">Qo'shish</a>
     </div>
 
     <div class="col-12">
         <table id="myTable" class="display table-bordered table-hover table-sm text-center">
             <thead>
                 <th>№</th>
-                <th>Table nomi</th>
-                <th>Icon nomi</th>
+                <th>Rasm</th>
+                <th>Link</th>
                 <th>Amallar</th>
             <tbody>
-                @foreach ($services as $service)
+                @foreach ($portifolios as $portifolio)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $service->title }}</td>
-                        <td>{{ $service->icon_name }}</td>
+                        <td>
+                            <img width="40" height="40" src="{{ asset('/storage/' . $portifolio->img) }}" alt="img error">
+                        </td>
+                        <td>{{ $portifolio->link }}</td>
                     <td>
                         <div class="dropdown">
                             <button type="button"
@@ -41,7 +43,7 @@
                                 </svg>
                             </button>
                             <div class="dropdown-menu" style="">
-                                <a class="dropdown-item" href="{{route('services.show', $service->id)}}">
+                                <a class="dropdown-item" href="{{route('portifolios.show', $portifolio->id)}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye  mr-50">
@@ -50,7 +52,7 @@
                                     </svg>
                                     <span>Batafsil</span>
                                 </a>
-                                <a class="dropdown-item" href="{{route('services.edit', $service->id)}}">
+                                <a class="dropdown-item" href="{{route('portifolios.edit', $portifolio->id)}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 mr-50">
@@ -58,10 +60,10 @@
                                     </svg>
                                     <span>O'zgartirish</span>
                                 </a>
-                                <form action="{{ route('services.destroy', $service->id) }}" method="POST" style="display: inline;">
+                                <form action="{{ route('portifolios.destroy', $portifolio->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button style="width: 100%" type="submit" class="dropdown-item" onclick="return confirm('Service o\'chirmoqchimisiz')">
+                                    <button style="width: 100%" type="submit" class="dropdown-item" onclick="return confirm('portifolio o\'chirmoqchimisiz')">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash mr-50">

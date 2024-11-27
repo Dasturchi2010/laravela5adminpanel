@@ -14,6 +14,14 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a class="d-flex align-items-center" href="{{route('portifolios.index')}}">
+        <i data-feather="user"></i>
+        <span class="menu-title text-truncate">Portifolio</span>
+    </a>
+</li>
+
+
 
 
 <li class=" nav-item">

@@ -31,8 +31,8 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'icon_name' => 'required|string|max:255',
+            'title' => 'required|max:12',
+            'icon_name' => 'required|max:12',
         ]);
 
         $service = Service::create([
@@ -65,8 +65,8 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'icon_name' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'max:12'],
+            'icon_name' => ['required','max:12'],
         ]);
 
         $service->update([
@@ -84,6 +84,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->route('services.index')->with('delete', "Siz 1 ta service o'chirdingiz");
+        return redirect()->route('services.index')->with('delete', "Siz 1 ta Service o'chirdingiz");
     }
 }

@@ -29,6 +29,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
       <!-- font awesome css -->
       <link rel="stylesheet" href="{{asset('frontend/path/to/font-awesome/css/font-awesome.min.css')}}">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
    </head>
    <body>
       <!-- header section start -->
@@ -188,122 +189,55 @@
          <div class="container">
             <div class="services_section_2">
                <div class="row">
-                  <div class="col-lg-3 col-sm-6">
-                     <div class="box_main ">
-                        <div class="app_icon"><img src="{{asset('frontend/images/icon-1.png')}}"></div>
-                        <div class="app_icon_1"><img src="{{asset('frontend/images/icon-1.png')}}"></div>
-                        <h4 class="services_text active">App Design</h4>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                     <div class="box_main ">
-                        <div class="app_icon"><img src="{{asset('frontend/images/icon-2.png')}}"></div>
-                        <div class="app_icon_1"><img src="{{asset('frontend/images/icon-6.png')}}"></div>
-                        <h4 class="services_text">Website Design</h4>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                     <div class="box_main ">
-                        <div class="app_icon"><img src="{{asset('frontend/images/icon-3.png')}}"></div>
-                        <div class="app_icon_1"><img src="{{asset('frontend/images/icon-7.png')}}"></div>
-                        <h4 class="services_text">Html And Css</h4>
-                     </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                     <div class="box_main ">
-                        <div class="app_icon"><img src="{{asset('frontend/images/icon-4.png')}}"></div>
-                        <div class="app_icon_1"><img src="{{asset('frontend/images/icon-8.png')}}"></div>
-                        <h4 class="services_text">Logo Designign</h4>
-                     </div>
-                  </div>
+                @foreach ($services as $service)
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="box_main ">
+                        <div class="app_icon"><i class="bi bi-{{$service->icon_name}}"></i></div>
+                        <div class="app_icon_1"><i class="bi bi-{{$service->icon_name}}"></i></div>
+                        <h4 class="services_text active">{{$service->title}}</h4>
+                    </div>
+                </div>
+                @endforeach
                </div>
                <div class="readmore_bt"><a href="#">Read More</a></div>
             </div>
          </div>
       </div>
       <!-- services section end -->
-      <!-- portfolio section start -->
-      <div class="portfolio_section layout_padding">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <h1 class="portfolio_taital">My <span class="portfolio_taital_1">Portfolio</span></h1>
-               </div>
-            </div>
-            <div class="portfolio_section">
-               <div class="portfolio_section_2">
-                  <div class="row">
-                     <div class="col-md-8">
-                        <div class="container_main">
-                           <img src="{{asset('frontend/images/img-1.png')}}" alt="" class="image">
-                           <div class="overlay">
-                              <div class="text">
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="container_main">
-                           <img src="{{asset('frontend/images/img-2.png')}}" alt="" class="image">
-                           <div class="overlay">
-                              <div class="text">
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="portfolio_section_2">
-                  <div class="row">
-                     <div class="col-md-4">
-                        <div class="container_main">
-                           <img src="{{asset('frontend/images/img-3.png')}}" alt="" class="image">
-                           <div class="overlay">
-                              <div class="text">
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="container_main">
-                           <img src="{{asset('frontend/images/img-4.png')}}" alt="" class="image">
-                           <div class="overlay">
-                              <div class="text">
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="container_main">
-                           <img src="images/img-5.png" alt="" class="image">
-                           <div class="overlay">
-                              <div class="text">
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="seemore_bt"><a href="#">See More</a></div>
-         </div>
-      </div>
-      <!-- portfolio section end -->
+<!-- portfolio section start -->
+<div class="portfolio_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <h1 class="portfolio_taital">My <span class="portfolio_taital_1">Portfolio</span></h1>
+          </div>
+       </div>
+       <div class="portfolio_section">
+          <div class="row">
+             @foreach ($portifolios as $portifolio)
+             <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="container_main">
+                   <img src="{{ asset('storage/' . $portifolio->img) }}" alt="Portfolio Image" class="image img-fluid">
+                   <div class="overlay">
+                      <div class="text">
+                         <div class="btn_main">
+                            <div class="buy_bt">
+                               <a href="{{ $portifolio->link }}">Link</a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             @endforeach
+          </div>
+       </div>
+       <div class="seemore_bt"><a href="#">See More</a></div>
+    </div>
+ </div>
+ <!-- portfolio section end -->
+
       <!-- blog section start -->
       <div class="blog_section layout_padding">
          <div class="container">
