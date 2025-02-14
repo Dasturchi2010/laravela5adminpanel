@@ -1,12 +1,22 @@
 @extends('backend.layouts.site')
 @section('content')
-    <div class="row">
+    <div class="row align-items-center" >
         <div class="col-12 text-center my-4">
             <h1 class="display-5 text-primary">Portifolio haqida ma'lumot</h1>
         </div>
 
         <div class="col-12 text-right mb-3">
-            <a href="{{ route('portifolios.index') }}" class="btn btn-warning text-white">
+            <form action="{{ route('portifolios.destroy', $portifolio->id) }}" method="POST" style="display: inline;">
+                @csrf
+                @method('DELETE')
+                <button onclick="return confirm('Tasdiqlash')" type="submit" class="btn btn-danger text-white">
+                    <i data-feather='trash'></i>
+                </button>
+            </form>
+            <a href="{{ route('portifolios.edit' ,  $portifolio->id) }}" class="btn btn-warning text-white">
+                <i data-feather='edit'></i>
+            </a>
+            <a href="{{ route('portifolios.index') }}" class="btn btn-primary text-white">
                 <i data-feather='home'></i>
             </a>
         </div>
@@ -40,25 +50,9 @@
         </div>
 
         <div class="col-lg-6">
-            <style>
-                img {
-                    border-radius: 5px;
-                }
-            </style>
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="card-title text-white">Portifolio rasmi</h4>
-                </div>
-                <div class="card-body text-center">
-                    @if ($portifolio->img == null)
-                        <img height="250" width="250" class="border" src="{{ asset('public/images/m.png') }}"
-                            alt="Rasm yo'q">
-                    @else
-                        <img height="250" width="250" class="border" src="{{ asset('/storage/' . $portifolio->img) }}"
-                            alt="portifolio rasmi">
-                    @endif
-                </div>
-            </div>
+
+            <img class="card-image-top" height="300" src="{{ asset('/storage/' . $portifolio->img) }}" alt="img error">
+
         </div>
 
     </div>

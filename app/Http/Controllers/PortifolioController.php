@@ -13,7 +13,7 @@ class PortifolioController extends Controller
     public function index()
     {
 
-        $portifolios = Portifolio::all();
+        $portifolios = Portifolio::orderByDesc('id')->get();
         return view('backend.Portifolio.index' , compact('portifolios'));
     }
 
@@ -83,6 +83,8 @@ class PortifolioController extends Controller
         $path = null;
         if ($request->hasFile('img')) {
             $path = $request->file('img')->store('portifolios', 'public');
+        }else{
+            $path = $portifolio->image;
         }
 
 

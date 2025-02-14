@@ -21,7 +21,19 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a class="d-flex align-items-center" href="{{route('contacts.index')}}">
+        <i data-feather="phone-call"></i>
+        <span class="menu-title text-truncate">Kantactlar</span>
+    </a>
+</li>
 
+<li class=" nav-item">
+    <a class="d-flex align-items-center" href="{{route('blogs.index')}}">
+        <i data-feather='file-text'></i>
+        <span class="menu-title text-truncate">Bloglar</span>
+    </a>
+</li>
 
 
 <li class=" nav-item">
